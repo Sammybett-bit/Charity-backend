@@ -9,4 +9,3 @@ CORS(app)
 def home():
     return 'Welcome to the api'
 
-@app.route('/
