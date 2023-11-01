@@ -8,3 +8,5 @@ CORS(app)
 @app.route('/')
 def home():
     return 'Welcome to the api'
+
+@app.route('/
