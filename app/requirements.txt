@@ -92,7 +92,7 @@ pyparsing==2.4.7
 pyperclip==1.8.0
 pyRFC3339==1.1
 pytest==7.4.3
-python-apt==2.4.0+ubuntu2
+python-apt
 python-dateutil==2.8.1
 python-debian==0.1.43+ubuntu1.1
 pythran==0.10.0
