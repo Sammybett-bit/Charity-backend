@@ -9,6 +9,13 @@ CORS(app)
 def home():
     return 'Welcome to the api'
 
+@app.route('/users', methods=['GET'])
+def get_all_users():
+    users = User.query.all()
+    serialized_users = [{'id': user.id, 'username': user.username, 'email': user.email,
+                         'password': user.password, 'phonenumber': user.phonenumber} for user in users]
+    return jsonify({'users': serialized_users})
+
 @app.route('/users', methods=['POST'])
 def create_user():
     user_data = request.get_json()
