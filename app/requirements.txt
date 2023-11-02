@@ -17,8 +17,8 @@ cycler==0.11.0
 dbus-python==1.2.18
 decorator==4.4.2
 distlib==0.3.7
-distro==1.7.0
-distro-info==1.1+ubuntu0.1
+distro
+distro-info
 duplicity==0.8.21
 exceptiongroup==1.1.3
 Faker==19.12.0
