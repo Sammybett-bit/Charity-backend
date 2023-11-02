@@ -53,7 +53,7 @@ def get_donations():
             'user_id': donation.user_id,
             'amount': donation.amount,
             'option': donation.option,  # Include donation option
-            'phone_number': donation.phone_number,  # Include phone number
+            'phone_number': donation.phone_number  # Include phone number
         }
         donation_list.append(donation_data)
 
