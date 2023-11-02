@@ -21,7 +21,6 @@ distro
 distro-info
 duplicity
 exceptiongroup==1.1.3
-Faker==19.12.0
 fasteners==0.14.1
 filelock==3.12.3
 Flask==3.0.0
