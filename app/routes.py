@@ -41,6 +41,23 @@ def create_user():
 
     return jsonify({'message': 'User created successfully', 'user_id': new_user.id}), 201
 
+
+@app.route('/donations', methods=['GET'])
+def get_donations():
+    donations = Donation.query.all()
+    donation_list = []
+
+    for donation in donations:
+        donation_data = {
+            'id': donation.id,
+            'user_id': donation.user_id,
+            'amount': donation.amount,
+        }
+        donation_list.append(donation_data)
+
+    return jsonify(donation_list)
+
+
 @app.route('/donations', methods=['POST'])
 def create_donation():
     donation_data = request.get_json()
