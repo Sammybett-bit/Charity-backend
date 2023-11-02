@@ -42,3 +42,16 @@ def validate_phonenumber(self, key, phonenumber):
     if not str(phonenumber).isdigit() or len(str(phonenumber)) != 10:
         raise ValueError('Phone number must be exactly 10 digits')
     return phonenumber
+
+
+class Donation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    amount = db.Column(db.Float, nullable=False)  # Assuming you store the donation amount as a float.
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+
+    @validates('amount')
+    def validate_amount(self, key, amount):
+        if amount <= 0:
+            raise ValueError('Donation amount must be greater than 0')
+        return amount
