@@ -28,7 +28,7 @@ Flask-Bcrypt==1.0.1
 Flask-Cors==4.0.0
 Flask-Migrate==4.0.5
 Flask-RESTful==0.3.10
-Flask-SQLAlchemy==3.1.1
+Flask-SQLAlchemy
 fonttools==4.29.1
 fs==2.4.12
 future==0.18.2
