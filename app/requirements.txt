@@ -107,7 +107,6 @@ soupsieve==2.3.1
 SQLAlchemy==2.0.22
 SQLAlchemy-serializer==1.4.1
 sympy==1.9
-systemd-python==234
 toml==0.10.2
 tomli==2.0.1
 traitlets==5.1.1
