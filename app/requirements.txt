@@ -119,7 +119,7 @@ virtualenv-clone==0.3.0
 wadllib==1.3.6
 wcwidth==0.2.5
 webencodings==0.5.1
-Werkzeug==3.0.0
+Werkzeug
 xdg==5
 xkit==0.0.0
 zipp==1.0.0
