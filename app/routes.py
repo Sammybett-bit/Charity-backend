@@ -52,11 +52,12 @@ def get_donations():
             'id': donation.id,
             'user_id': donation.user_id,
             'amount': donation.amount,
+            'option': donation.option,  # Include donation option
+            'phone_number': donation.phone_number,  # Include phone number
         }
         donation_list.append(donation_data)
 
     return jsonify(donation_list)
-
 
 @app.route('/donations', methods=['POST'])
 def create_donation():
@@ -71,9 +72,12 @@ def create_donation():
     if not user:
         return jsonify({'message': 'User not found'}), 404
 
+    # Create a new Donation with additional fields (option and phone_number)
     new_donation = Donation(
         user_id=donation_data['user_id'],
-        amount=donation_data['amount']
+        amount=donation_data['amount'],
+        option=donation_data.get('option', 'Unspecified'),  # Default to 'Unspecified' if not provided
+        phone_number=donation_data.get('phone_number', 'N/A')  # Default to 'N/A' if not provided
     )
 
     db.session.add(new_donation)
@@ -81,15 +85,15 @@ def create_donation():
 
     return jsonify({'message': 'Donation created successfully', 'donation_id': new_donation.id}), 201
 
-@app.route('/donations/<user_id>', methods=['GET'])
+@app.route('/donations/<int:user_id>', methods=['GET'])
 def get_user_donations(user_id):
     user = User.query.get(user_id)
-    
+
     if not user:
         return jsonify({'message': 'User not found'}), 404
 
     donations = Donation.query.filter_by(user_id=user.id).all()
-    donation_details = [{'id': donation.id, 'amount': donation.amount, 'created_at': donation.created_at} for donation in donations]
+    donation_details = [{'id': donation.id, 'amount': donation.amount, 'option': donation.option, 'phone_number': donation.phone_number, 'created_at': donation.created_at} for donation in donations]
 
     return jsonify({'user_id': user.id, 'donations': donation_details}), 200
 

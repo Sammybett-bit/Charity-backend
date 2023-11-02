@@ -46,7 +46,9 @@ def validate_phonenumber(self, key, phonenumber):
 
 class Donation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    amount = db.Column(db.Float, nullable=False)  # Assuming you store the donation amount as a float.
+    amount = db.Column(db.Float, nullable=False)
+    option = db.Column(db.String(50), nullable=False)  
+    phone_number = db.Column(db.String(15), nullable=False)  
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
